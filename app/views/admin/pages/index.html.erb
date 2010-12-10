@@ -16,6 +16,7 @@
 		<th><%=t("ext_static_content_title")%></th>
 		<th><%=t("ext_static_content_link")%></th>
 		<th><%=t("ext_static_content_visible")%></th>
+		<th><%=t("ext_static_content.in_menu")%></th>
 		<th><%=t("action")%></th>
   </tr>
 	<tbody>
@@ -25,10 +26,19 @@
 				<%= page.title %>
 			</td>
 			<td>
-				<%= link_to page.link, page.link %>
+				<% if page.link.present? %>
+				  <%= link_to page.link, page.link %>
+				<% else page.foreign_link? %>
+				  <%= raw t("ext_static_content.no_link") %>
+				<% end %>
 			</td>
 			<td>
-			  <%= page.visible %>
+			  <%= page.visible ? t(:yes) : t(:no) %>
+			</td>
+			<td>
+				<%= raw("#{t("ext_static_content.header")}<br/>") if page.show_in_header? %>
+				<%= raw("#{t("ext_static_content.sidebar")}<br/>") if page.show_in_sidebar? %>
+				<%= t("ext_static_content.footer") if page.show_in_footer? %>
 			</td>
 			<td>
         <%= link_to_edit page %> &nbsp;

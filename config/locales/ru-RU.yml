@@ -4,7 +4,7 @@ ru-RU:
     ext_static_content_static_pages: "Статические страницы"
     ext_static_content_static_pages_desc: "Управление статическими страницами"
     ext_static_content_title: "Заголовок"
-    ext_static_content_slug: "Постоянная ссылка"
+    ext_static_content_slug: "Адрес"
     ext_static_content_body: "Основной текст"
     ext_static_content_new_page: "Новая страница"
     ext_static_content_editing_page: "Редактирование страницы"
@@ -34,3 +34,8 @@ ru-RU:
       hide_more_fields: Скрыть дополнительные поля
       switch_simple: Переключиться на простой редактор
       switch_rich: Переключиться на расширенный
+      no_link: "Нет ссылки<br/>Добавьте Адрес или Внешнюю ссылку"
+      in_menu: Меню
+      sidebar: Боковое меню
+      header: Верхнее меню
+      footer: Нижнее меню
