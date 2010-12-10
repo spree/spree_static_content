@@ -1,45 +1,43 @@
 <% content_for :head do %>
-
-  <%= javascript_include_tag 'wymeditor/jquery.wymeditor.js' %>
-
-  <script type="text/javascript" charset="utf-8">
-
-    var $j = jQuery.noConflict();
-    $j(function() {
-      $j('.wymeditor').wymeditor({
-        xhtmlParser: 'xhtml_parser.js',
-        cssParser:   'wym_css_parser.js',
-        stylesheet: '/stylesheets/static.css?v='+Math.random(),
-        containersItems: [
-          {'name': 'P', 'title': 'Paragraph', 'css': 'wym_containers_p'},
-          {'name': 'H1', 'title': 'Heading_1', 'css': 'wym_containers_h1'},
-          {'name': 'H2', 'title': 'Heading_2', 'css': 'wym_containers_h2'},
-          {'name': 'H3', 'title': 'Heading_3', 'css': 'wym_containers_h3'},
-          {'name': 'PRE', 'title': 'Preformatted', 'css': 'wym_containers_pre'},
-          {'name': 'BLOCKQUOTE', 'title': 'Blockquote', 'css': 'wym_containers_blockquote'},
-        ],
-        lang: '<%= I18n.locale.to_s.split("-").first %>'
-      });
-    });
-
-  </script>
+  <%= javascript_include_tag 'jquery.ocupload' %>
+	<%= stylesheet_link_tag 'static_content' %>
 <% end %>
 
-<table class="admin-report" width="545">
+<table class="page-form admin-report" width="545">
   <tr>
-    <td valign="top"><%=t("ext_static_content_title")%>:</td>
+    <td valign="top" class="first"><%=t("ext_static_content_title")%>:</td>
     <td><%= f.text_field :title, {"style" => "width:500px"} %></td>
   </tr>
   <tr>
     <td valign="top"><%=t("ext_static_content_slug")%>:</td>
     <td><%= f.text_field :slug, {"style" => "width:500px"} %></td>
   </tr>
-  <tr>
-    <td valign="top"><%=t("ext_static_content_body")%>:</td>
-    <td><%= f.text_area :body, {"style" => "width:500px", "class"=> "wymeditor"} %> </td>
+  <tr class="yui-skin-sam">
+    <td colspan="2">
+			<%= f.text_area :body, {"style" => "width:500px", "class"=> "wymeditor"} %>
+		</td>
   </tr>
+</table>
+
+<div class="page-form page-form-bottom-buttons">
+	<div class="button more-show">
+		<a href="#"><%= t("ext_static_content.show_more_fields") %></a>
+	</div>
+	<div class="button more-hide" style="display: none;">
+		<a href="#"><%= t("ext_static_content.hide_more_fields") %></a>
+	</div>
+	<div class="button switch-simple">
+		<a href="#"><%= t("ext_static_content.switch_simple") %></a>
+	</div>
+	<div class="button switch-rich" style="display: none;">
+		<a href="#"><%= t("ext_static_content.switch_rich") %></a>
+	</div>
+	<br class="clear" />
+</div>
+
+<table class="admin-report" id="page-form-extra-fields" width="545">
   <tr>
-    <td valign="top"><%=t("ext_static_content_foreign_link")%>:</td>
+    <td valign="top" class="first"><%=t("ext_static_content_foreign_link")%>:</td>
     <td><%= f.text_field :foreign_link, {"style" => "width:500px"} %></td>
   </tr>
   <tr>
@@ -75,3 +73,189 @@
     <td><%= f.check_box :visible %></td>
   </tr>
 </table>
+
+<div class="mask-container">
+	<div id='page_body_container_mask'></div
+	<div id='page_body_container_mask_label'><%= t("ext_static_content.loading") %></div
+</div>
+
+<!-- Skin CSS file -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css">
+<!-- Utility Dependencies -->
+<script src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script>
+<!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
+<script src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script>
+<script src="http://yui.yahooapis.com/2.8.2r1/build/menu/menu-min.js"></script>
+<script src="http://yui.yahooapis.com/2.8.2r1/build/button/button-min.js"></script>
+<!-- Source file for Rich Text Editor-->
+<script src="http://yui.yahooapis.com/2.8.2r1/build/editor/editor-min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+	var body_editor = new YAHOO.widget.Editor('page_body', {
+		height: '300px',
+		width: '790px',
+		animate: true,
+		autoHeight: true,
+		handleSubmit: true,
+		toolbar: {
+			collapse: true,
+			titlebar: false,
+			draggable: false,
+			buttonType: 'advanced',
+			buttons: [
+			    { group: 'fontstyle', label: '<%= t("ext_static_content.font_name_and_size") %>',
+			        buttons: [
+			            { type: 'select', label: 'Arial', value: 'fontname', disabled: true,
+			                menu: [
+			                    { text: 'Arial', checked: true },
+			                    { text: 'Arial Black' },
+			                    { text: 'Comic Sans MS' },
+			                    { text: 'Courier New' },
+			                    { text: 'Lucida Console' },
+			                    { text: 'Tahoma' },
+			                    { text: 'Times New Roman' },
+			                    { text: 'Trebuchet MS' },
+			                    { text: 'Verdana' }
+			                ]
+			            },
+			            { type: 'spin', label: '13', value: 'fontsize', range: [ 9, 75 ], disabled: true }
+			        ]
+			    },
+			    { type: 'separator' },
+			    { group: 'textstyle', label: '<%= t("ext_static_content.font_style") %>',
+			        buttons: [
+			            { type: 'push', label: 'Bold CTRL + SHIFT + B', value: 'bold' },
+			            { type: 'push', label: 'Italic CTRL + SHIFT + I', value: 'italic' },
+			            { type: 'push', label: 'Underline CTRL + SHIFT + U', value: 'underline' },
+			            { type: 'separator' },
+			            { type: 'push', label: 'Subscript', value: 'subscript', disabled: true },
+			            { type: 'push', label: 'Superscript', value: 'superscript', disabled: true },
+			            { type: 'separator' },
+			            { type: 'color', label: 'Font Color', value: 'forecolor', disabled: true },
+			            { type: 'color', label: 'Background Color', value: 'backcolor', disabled: true },
+			            { type: 'separator' },
+			            { type: 'push', label: 'Remove Formatting', value: 'removeformat', disabled: true },
+			            { type: 'push', label: 'Show/Hide Hidden Elements', value: 'hiddenelements' }
+			        ]
+			    },
+			    { type: 'separator' },
+			    { group: 'alignment', label: '<%= t("ext_static_content.alignment") %>',
+			        buttons: [
+			            { type: 'push', label: 'Align Left CTRL + SHIFT + [', value: 'justifyleft' },
+			            { type: 'push', label: 'Align Center CTRL + SHIFT + |', value: 'justifycenter' },
+			            { type: 'push', label: 'Align Right CTRL + SHIFT + ]', value: 'justifyright' },
+			            { type: 'push', label: 'Justify', value: 'justifyfull' }
+			        ]
+			    },
+			    { type: 'separator' },
+			    { group: 'parastyle', label: '<%= t("ext_static_content.paragraph_style") %>',
+			        buttons: [
+			        { type: 'select', label: 'Normal', value: 'heading', disabled: true,
+			            menu: [
+			                { text: 'Normal', value: 'none', checked: true },
+			                { text: 'Header 1', value: 'h1' },
+			                { text: 'Header 2', value: 'h2' },
+			                { text: 'Header 3', value: 'h3' },
+			                { text: 'Header 4', value: 'h4' },
+			                { text: 'Header 5', value: 'h5' },
+			                { text: 'Header 6', value: 'h6' }
+			            ]
+			        }
+			        ]
+			    },
+			    { type: 'separator' },
+			    { group: 'indentlist', label: '<%= t("ext_static_content.indenting_and_lists") %>',
+			        buttons: [
+			            { type: 'push', label: 'Indent', value: 'indent', disabled: true },
+			            { type: 'push', label: 'Outdent', value: 'outdent', disabled: true },
+			            { type: 'push', label: 'Create an Unordered List', value: 'insertunorderedlist' },
+			            { type: 'push', label: 'Create an Ordered List', value: 'insertorderedlist' }
+			        ]
+			    },
+			    { type: 'separator' },
+			    { group: 'insertitem', label: '<%= t("ext_static_content.insert_item") %>',
+			        buttons: [
+			            { type: 'push', label: 'HTML Link CTRL + SHIFT + L', value: 'createlink', disabled: true },
+			            { type: 'push', label: '<%= t("ext_static_content.insert_image") %>', value: 'insertimage' }
+			        ]
+			    }
+			]
+		}
+	});
+
+	body_editor.on('toolbarLoaded', function() {
+		var imageUploadConfig = {
+			type: 'push',
+			label: '<%= t("ext_static_content.upload_image") %>',
+			value: 'imageUpload'
+		}
+
+		body_editor.toolbar.addButtonToGroup(imageUploadConfig, 'insertitem');
+	});
+
+	body_editor.addListener('editorContentLoaded', function() {
+		var myUpload = $(".yui-toolbar-imageUpload").upload({
+			name: 'file',
+			action: 'upload_image',
+			enctype: 'multipart/form-data',
+			params: {},
+			autoSubmit: true,
+			onSubmit: function() {
+				$(".mask-container").addClass("active");
+			},
+			onComplete: function(image_src) {
+				img_html = "<img src='"+image_src+"'/>";
+				body_editor.execCommand('inserthtml', img_html);
+				$(".mask-container").removeClass("active");
+			}
+		});
+	});
+
+	body_editor.render();
+
+	$(".page-form-bottom-buttons .more-show, .page-form-bottom-buttons .more-hide").click(function() {
+		$("#page-form-extra-fields").toggle();
+		$(".page-form-bottom-buttons .more-show").toggle();
+		$(".page-form-bottom-buttons .more-hide").toggle();
+		return false;
+	});
+
+	$(".page-form-bottom-buttons .switch-simple, .page-form-bottom-buttons .switch-rich").click(function() {
+		$(".page-form-bottom-buttons .switch-simple").toggle();
+		$(".page-form-bottom-buttons .switch-rich").toggle();
+		return false;
+	});
+	$(".page-form-bottom-buttons .switch-simple").click(function() {
+		body_editor.saveHTML();
+
+		var fc = body_editor.get('element').previousSibling,
+		    el = body_editor.get('element');
+
+		YAHOO.util.Dom.setStyle(fc, 'position', 'absolute');
+		YAHOO.util.Dom.setStyle(fc, 'top', '-9999px');
+		YAHOO.util.Dom.setStyle(fc, 'left', '-9999px');
+		body_editor.get('element_cont').removeClass('yui-editor-container');
+		YAHOO.util.Dom.setStyle(el, 'visibility', 'visible');
+		YAHOO.util.Dom.setStyle(el, 'top', '');
+		YAHOO.util.Dom.setStyle(el, 'left', '');
+		YAHOO.util.Dom.setStyle(el, 'position', 'static');
+		YAHOO.util.Dom.setStyle(el, 'width', '780px');
+		return false;
+	});
+	$(".page-form-bottom-buttons .switch-rich").click(function() {
+		var fc = body_editor.get('element').previousSibling,
+		    el = body_editor.get('element');
+
+		YAHOO.util.Dom.setStyle(fc, 'position', 'static');
+		YAHOO.util.Dom.setStyle(fc, 'top', '0');
+		YAHOO.util.Dom.setStyle(fc, 'left', '0');
+		YAHOO.util.Dom.setStyle(el, 'visibility', 'hidden');
+		YAHOO.util.Dom.setStyle(el, 'top', '-9999px');
+		YAHOO.util.Dom.setStyle(el, 'left', '-9999px');
+		YAHOO.util.Dom.setStyle(el, 'position', 'absolute');
+		body_editor.get('element_cont').addClass('yui-editor-container');
+		body_editor._setDesignMode('on');
+		return false;
+	});
+</script>

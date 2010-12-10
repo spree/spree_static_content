@@ -1,9 +1,8 @@
 class Page < ActiveRecord::Base
   default_scope :order => "position ASC"
 
-  validates_presence_of :title
-  validates_presence_of [:slug, :body], :if => :not_using_foreign_link?
-  
+  has_many :images, :as => :viewable, :dependent => :destroy
+
   scope :header_links, where(["show_in_header = ?", true])
   scope :footer_links, where(["show_in_footer = ?", true])
   scope :sidebar_links, where(["show_in_sidebar = ?", true])
@@ -34,15 +33,12 @@ class Page < ActiveRecord::Base
     foreign_link.blank? ? slug_link : foreign_link
   end
 
-private  
-  def not_using_foreign_link?
-    foreign_link.blank?
-  end
+  private
 
   def slug_link
-    ensure_slash_prefix slug
+    ensure_slash_prefix(slug) if slug?
   end
-  
+
   def ensure_slash_prefix(str)
     str.index('/') == 0 ? str : '/' + str
   end
