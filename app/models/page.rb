@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   default_scope :order => "position ASC"
 
-  has_many :images, :as => :viewable, :dependent => :destroy
+  has_many :content_images, :as => :viewable, :dependent => :destroy
 
   scope :header_links, where(["show_in_header = ?", true])
   scope :footer_links, where(["show_in_footer = ?", true])
