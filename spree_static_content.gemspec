@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
      "config/locales/nl-NL.yml",
      "config/locales/pl.yml",
      "config/locales/pt-BR.yml",
-     "config/locales/ru-RU.yml",
+     "config/locales/ru.yml",
      "config/routes.rb",
      "spec/controllers/admin/pages_controller_spec.rb",
      "spec/controllers/content_controller_spec.rb",
