@@ -6,8 +6,8 @@ class Page < ActiveRecord::Base
   scope :header_links, where(["show_in_header = ?", true])
   scope :footer_links, where(["show_in_footer = ?", true])
   scope :sidebar_links, where(["show_in_sidebar = ?", true])
-  
   scope :visible, where(:visible => true)
+  scope :parents, where(["parent_id IS NULL"])
 
   def initialize(*args)
     super(*args)

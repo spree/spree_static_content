@@ -39,3 +39,5 @@ en:
       sidebar: Sidebar
       header: Header
       footer: Footer
+      parent: Parent page
+      main_page: Main

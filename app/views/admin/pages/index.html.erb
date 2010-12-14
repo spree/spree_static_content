@@ -15,6 +15,7 @@
 	<tr>
 		<th><%=t("ext_static_content_title")%></th>
 		<th><%=t("ext_static_content_link")%></th>
+		<th><%=t("ext_static_content.parent")%></th>
 		<th><%=t("ext_static_content_visible")%></th>
 		<th><%=t("ext_static_content.in_menu")%></th>
 		<th><%=t("action")%></th>
@@ -31,6 +32,9 @@
 				<% else page.foreign_link? %>
 				  <%= raw t("ext_static_content.no_link") %>
 				<% end %>
+			</td>
+			<td>
+				<%= Page.find(page.parent_id).title if page.parent_id? %>
 			</td>
 			<td>
 			  <%= page.visible ? t(:yes) : t(:no) %>
