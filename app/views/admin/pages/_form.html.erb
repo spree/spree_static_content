@@ -256,6 +256,7 @@
 		YAHOO.util.Dom.setStyle(el, 'position', 'absolute');
 		body_editor.get('element_cont').addClass('yui-editor-container');
 		body_editor._setDesignMode('on');
+		body_editor.setEditorHTML(body_editor.get('textarea').value);
 		return false;
 	});
 </script>
