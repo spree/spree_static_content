@@ -38,7 +38,9 @@
 <table class="admin-report" id="page-form-extra-fields" width="545">
 	<tr>
     <td valign="top" class="first"><%=t("ext_static_content.parent")%>:</td>
-		<td><%= f.select :parent_id, [[t("ext_static_content.main_page"), nil]] + Page.parents.where(["id != ?", @page.id]).map { |p| [p.title, p.id] }, {"style" => "width:500px"} %></td>
+		<td>
+			<%= f.select :parent_id, [[t("ext_static_content.main_page"), nil]] + nested_set_options(Page, @page) { |p| "#{'-' * p.level} #{p.title}" } %>
+		</td>
   </tr>
   <tr>
     <td valign="top"><%=t("ext_static_content_foreign_link")%>:</td>

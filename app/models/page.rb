@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   default_scope :order => "position ASC"
+  acts_as_nested_set :dependent => :destroy
 
   has_many :content_images, :as => :viewable, :dependent => :destroy
 
@@ -7,7 +8,6 @@ class Page < ActiveRecord::Base
   scope :footer_links, where(["show_in_footer = ?", true])
   scope :sidebar_links, where(["show_in_sidebar = ?", true])
   scope :visible, where(:visible => true)
-  scope :parents, where(["parent_id IS NULL"])
 
   def initialize(*args)
     super(*args)
@@ -24,9 +24,7 @@ class Page < ActiveRecord::Base
         Page.update_all("position = position - 1", ["? < position AND position <= ?", prev_position,  self.position])
       end
     end
-    
     self.slug = slug_link
-    
   end
 
   def link
