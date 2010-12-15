@@ -3,6 +3,7 @@ class Page < ActiveRecord::Base
   acts_as_nested_set :dependent => :destroy
 
   has_many :content_images, :as => :viewable, :dependent => :destroy
+  has_many :content_files, :as => :viewable, :dependent => :destroy
 
   scope :header_links, where(["show_in_header = ?", true])
   scope :footer_links, where(["show_in_footer = ?", true])

@@ -24,11 +24,12 @@ ru:
       font_name_and_size: Шрифт и размер
       font_style: Стиль
       alignment: Выравнивание
-      paragraph_style: Стиль параграфа
+      paragraph_style: Стиль
       indenting_and_lists: "Отступы/списки"
       insert_item: Вставка
       insert_image: Вставить картинки по адресу
       upload_image: Загрузить картинку
+      upload_image: Загрузить файл
       show_more_fields: Показать дополнительные поля
       hide_more_fields: Скрыть дополнительные поля
       switch_simple: Переключиться на простой редактор
@@ -40,3 +41,4 @@ ru:
       footer: Нижнее меню
       parent: Находится на странице
       main_page: Главная
+      enter_file_name: Введите имя файла

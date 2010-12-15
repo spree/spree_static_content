@@ -32,6 +32,9 @@
 .yui-toolbar-imageUpload {
 	background: url("/images/upload_image.png") no-repeat scroll 50% 50% transparent !important;
 }
+.yui-toolbar-fileUpload {
+	background: url("/images/upload_file.png") no-repeat scroll 50% 50% transparent !important;
+}
 .page-form-bottom-buttons {
 	margin-left: 5px;
 	margin-bottom: 20px;

@@ -195,13 +195,19 @@
 			type: 'push',
 			label: '<%= t("ext_static_content.upload_image") %>',
 			value: 'imageUpload'
-		}
-
+		};
 		body_editor.toolbar.addButtonToGroup(imageUploadConfig, 'insertitem');
+
+		var fileUploadConfig = {
+			type: 'push',
+			label: '<%= t("ext_static_content.upload_file") %>',
+			value: 'fileUpload'
+		};
+		body_editor.toolbar.addButtonToGroup(fileUploadConfig, 'insertitem');
 	});
 
 	body_editor.addListener('editorContentLoaded', function() {
-		var myUpload = $(".yui-toolbar-imageUpload").upload({
+		$(".yui-toolbar-imageUpload").upload({
 			name: 'file',
 			action: 'upload_image',
 			enctype: 'multipart/form-data',
@@ -211,9 +217,28 @@
 				$(".mask-container").addClass("active");
 			},
 			onComplete: function(image_src) {
-				img_html = "<img src='"+image_src+"'/>";
+				var img_html = "<img src='"+image_src+"'/>";
 				body_editor.execCommand('inserthtml', img_html);
 				$(".mask-container").removeClass("active");
+			}
+		});
+
+		$(".yui-toolbar-fileUpload").upload({
+			name: 'file',
+			action: 'upload_file',
+			enctype: 'multipart/form-data',
+			params: {},
+			autoSubmit: true,
+			onSubmit: function() {
+				$(".mask-container").addClass("active");
+			},
+			onComplete: function(file_url_and_name) {
+				var file_url = file_url_and_name.split(",")[0];
+				var file_name_original = file_url_and_name.split(",")[1];
+				$(".mask-container").removeClass("active");
+				var file_name = prompt('<%= t("ext_static_content.enter_file_name") %>', file_name_original);
+				var link_html = "<a href='"+file_url+"'/>"+file_name+"</a>";
+				body_editor.execCommand('inserthtml', link_html);
 			}
 		});
 	});

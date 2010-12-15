@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :pages do
       member do
         post :upload_image
+        post :upload_file
       end
       collection do
         get :create_draft
