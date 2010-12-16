@@ -19,3 +19,6 @@ ru:
     ext_static_content_meta_keywords: "Ключевые слова"
     ext_static_content_meta_description: "Описание"
     ext_static_content_layout: "Макет"
+    ext_static_content:
+      show_more_fields: Показать дополнительные поля
+      hide_more_fields: Скрыть дополнительные поля
