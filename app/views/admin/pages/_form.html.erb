@@ -39,7 +39,7 @@
 	<tr>
     <td valign="top" class="first"><%=t("ext_static_content.parent")%>:</td>
 		<td>
-			<%= f.select :parent_id, [[t("ext_static_content.main_page"), nil]] + nested_set_options(Page, @page) { |p| "#{'-' * p.level} #{p.title}" } %>
+			<%= f.select :parent_id, [[t("ext_static_content.blank_parent_page"), nil]] + nested_set_options(Page, @page) { |p| "#{'-' * p.level} #{p.title}" } %>
 		</td>
   </tr>
   <tr>

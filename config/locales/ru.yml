@@ -22,3 +22,5 @@ ru:
     ext_static_content:
       show_more_fields: Показать дополнительные поля
       hide_more_fields: Скрыть дополнительные поля
+      parent: Находится на странице
+      blank_parent_page: Выберите

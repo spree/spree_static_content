@@ -23,3 +23,5 @@ en:
   ext_static_content:
     show_more_fields: Show more fields
     hide_more_fields: Hide fields
+    parent: Parent page
+    blank_parent_page: None
