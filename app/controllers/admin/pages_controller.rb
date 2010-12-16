@@ -23,22 +23,4 @@ class Admin::PagesController < Admin::BaseController
     Rails.cache.delete('page_not_exist/'+@page.slug)
   end
 
-  def upload_image
-    @content_image = ContentImage.new(:attachment => params[:file])
-    @page = Page.find(params[:id])
-    @content_image.viewable = @page
-    @content_image.save!
-
-    render :text => @content_image.attachment.url
-  end
-
-  def upload_file
-    @content_file = ContentFile.new(:attachment => params[:file])
-    @page = Page.find(params[:id])
-    @content_file.viewable = @page
-    @content_file.save!
-
-    render :text => "#{@content_file.attachment.url},#{@content_file.attachment_file_name}"
-  end
-
 end
