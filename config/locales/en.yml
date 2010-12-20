@@ -25,3 +25,5 @@ en:
     hide_more_fields: Hide fields
     parent: Parent page
     blank_parent_page: None
+    no_link: "No link<br/>Add Slug Or Foreign Link"
+    in_menu: Menu
