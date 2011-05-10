@@ -1,5 +1,17 @@
 ---
 ru:
+  activerecord:
+    attributes:
+      page:
+        title: Заголовок
+        slug: Постоянная ссылка
+        body: Основной текст
+    models:
+      page:
+        one: Страница
+        few: Страницы
+        many: Страниц
+
   pages: "Страницы"
   static_content:
     static_pages: "Статические страницы"
