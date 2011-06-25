@@ -11,6 +11,10 @@ Spree::BaseController.class_eval do
   # Using request.path allows us to override dynamic pages including
   # the home page, product and taxon pages.
   def render_page_if_exists
+    # Do not execute on administration resources 
+    # (can cause trouble with PageController in particular as it conflicts with the @page instance variable)
+    return if self.is_a?(Admin::ResourceController)
+    
     # If we don't know if page exists we assume it's and we query DB.
     # But we realy don't want to query DB on each page we're sure doesn't exist!
     return if Rails.cache.fetch('page_not_exist/'+request.path)

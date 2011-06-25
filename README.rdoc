@@ -32,3 +32,9 @@ extension to change the layout of the static pages.
 1. Run `rails g spree_static_content:install`
 1. Run `rake db:migrate`
 1. Run `rake spree_editor:install`
+
+== I18N
+There's a good chance that you've got Spree running in a particular locale, like en-GB.  This extension does not provide specific locale support for English as it is just duplicated across regions (GB, AU, CA, etc).  Therefore you should set i18n fallbacks to true in your application.rb file to pick up the default en locale:
+
+  config.i18n.default_locale = 'en-GB'
+  config.i18n.fallbacks = true
