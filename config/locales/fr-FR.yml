@@ -1,12 +1,31 @@
 ---
 fr-FR:
+  activerecord:
+    attributes:
+      page:
+        title: Titre
+        slug: Permalien
+        body: Contenu
+        foreign_link: Foreign link (URL)
+        show_in_sidebar: Afficher dans la colonne
+        show_in_header: Afficher dans le haut de la page
+        show_in_footer: Afficher dans le bas de la page
+        position: Position
+        visible: Visible
+        meta_keywords: Meta Keywords
+        meta_description: Meta Description
+        layout: Layout
+    models:
+      page:
+        one: Page
+        many: Pages
   pages: Pages
   static_content:
     static_pages: Pages statiques
     static_pages_desc: "Gérer les pages statiques avec l'éditeur WYSIWYG."
     title: Titre
-    slug: Slug
-    body: Corps
+    slug: Permalien
+    body: Contenu
     new_page: Nouvelle page
     editing_page: Edition de la page
     foreign_link: Lien extérieur (URL)
