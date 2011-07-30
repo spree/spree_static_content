@@ -11,7 +11,8 @@ you create your page in the Spree Administration area, including the
 leading slash.  For example:
 
 - to override the home page, use a path of '/' (without quotes).
-- to override a product page, use its path, e.g. '/products/apache-baseball-jersey' (without quotes). 
+- to override a product page, use its path, e.g. '/products/apache-baseball-jersey' (without quotes).
+
 
 The dynamic page can be made available again if you delete the static page or change its slug.
 

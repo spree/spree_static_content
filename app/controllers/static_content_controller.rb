@@ -19,7 +19,11 @@ class StaticContentController < Spree::BaseController
   private
   
   def accurate_title
-    @page ? @page.title : nil
+    if @page.respond_to?("meta_title")
+      @page ? @page.meta_title : nil
+    else
+      @page ? @page.title : nil
+    end
   end
 end
 
