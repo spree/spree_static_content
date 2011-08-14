@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.60.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Peter Berkenbosch", "Roman Smirnov"]
-  s.date = %q{2011-07-06}
+  s.authors = [%q{Peter Berkenbosch}, %q{Roman Smirnov}]
+  s.date = %q{2011-08-14}
   s.description = %q{Extention to manage the static pages for your Spree shop.}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
     "lib/generators/templates/db/migrate/20091219021134_add_meta_fields_to_pages.rb",
     "lib/generators/templates/db/migrate/20100204105222_add_layout_to_pages.rb",
     "lib/generators/templates/db/migrate/20100323085528_add_show_in_sidebar_option_to_pages.rb",
+    "lib/generators/templates/db/migrate/20110717103112_add_meta_title_to_page.rb",
     "lib/generators/templates/public/stylesheets/formtastic.css",
     "lib/generators/templates/public/stylesheets/formtastic_changes.css",
     "lib/spree_static_content.rb",
@@ -62,8 +63,8 @@ Gem::Specification.new do |s|
     "spree_static_content.gemspec"
   ]
   s.homepage = %q{http://github.com/spree/spree-static-content}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{Extention to manage the static pages for your Spree shop.}
 
   if s.respond_to? :specification_version then
@@ -73,15 +74,18 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<spree_core>, [">= 0.60.0"])
       s.add_runtime_dependency(%q<spree_editor>, [">= 0.50.0"])
       s.add_runtime_dependency(%q<formtastic>, ["~> 1.2.3"])
+      s.add_runtime_dependency(%q<deface>, [">= 0"])
     else
       s.add_dependency(%q<spree_core>, [">= 0.60.0"])
       s.add_dependency(%q<spree_editor>, [">= 0.50.0"])
       s.add_dependency(%q<formtastic>, ["~> 1.2.3"])
+      s.add_dependency(%q<deface>, [">= 0"])
     end
   else
     s.add_dependency(%q<spree_core>, [">= 0.60.0"])
     s.add_dependency(%q<spree_editor>, [">= 0.50.0"])
     s.add_dependency(%q<formtastic>, ["~> 1.2.3"])
+    s.add_dependency(%q<deface>, [">= 0"])
   end
 end
 
