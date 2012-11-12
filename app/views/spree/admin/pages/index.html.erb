@@ -7,11 +7,11 @@
 <% end %>
 
 <table class="index">
-	<tr>
-		<th><%= Spree::Page.human_attribute_name(:title) %></th>
-		<th><%= t("static_content.link") %></th>
-		<th><%= Spree::Page.human_attribute_name(:visible) %></th>
-		<th><%= t("action") %></th>
+	<tr>	     
+		<th><%= static_content.title_table %></th>
+		<th><%= t("static_content.link_table") %></th>
+		<th><%= t("static_content.visible_table") %></th>
+		<th><%= t(static_content.action_table") %></th>
   </tr>
 	<tbody>
     	<% @pages.each do |page| %>

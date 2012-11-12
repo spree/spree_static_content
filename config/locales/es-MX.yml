@@ -1,0 +1,42 @@
+---
+es-MX:
+  activerecord:
+    attributes:
+      spree/page: &page_labels
+        title: Título
+        slug: Slug
+        body: Cuerpo
+        foreign_link: Enlace externo (URL)
+        show_in_sidebar: Mostrar en la barra lateral
+        show_in_header: Mostrar en el header
+        show_in_footer: Mostrar en el footer
+        position: Posición
+        visible: Visible
+        meta_keywords: Meta palabras
+        meta_description: Meta Descripción
+        meta_title: Meta Título
+        layout: Layout
+    models:
+      spree/page:
+        one:  La página
+        many: Las páginas
+  helpers:
+    label:
+      page:
+        <<: *page_labels
+
+  page: Página
+  pages: Páginas
+  static_content:
+    static_pages: Páginas estáticas
+    static_pages_desc: Administrar las páginas estáticas con el editor WYSIWYG.
+    new_page: Nueva página
+    editing_page: Editando páginas
+    confirm_delete: ¿Está seguro?
+    meta_title: Meta Título
+    page_navigation_title: "Páginas"
+    render_layout_as_partial: "Devolver el layout como parcial"
+    title_table: Título
+    visible_table: Visible
+    action_table: Acción
+    link_table: Enlace
