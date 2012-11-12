@@ -13,6 +13,7 @@
 	<tr>
 		<th><%= Spree::Page.human_attribute_name(:title) %></th>
 		<th><%= t("static_content.link") %></th>
+		<th><%= t("static_content.render_layout_as_partial") %></th>
 		<th><%= Spree::Page.human_attribute_name(:visible) %></th>
 		<th><%= t("action") %></th>
   </tr>
@@ -24,6 +25,9 @@
 			</td>
 			<td>
 				<%= link_to page.link, page.link %>
+			</td>
+			<td>
+			  <%= icon('tick') if page.render_layout_as_partial %>
 			</td>
 			<td>
 			  <%= icon('tick') if page.visible %>

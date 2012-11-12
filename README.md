@@ -21,15 +21,25 @@ body element are all required fields.
 Body text provided without a layout / partial being specified will be loaded in the spree_application layout after
 it is pulled from the database.
 
-**Layout and Partial Rendering**
+###Layout and Partial Rendering###
 
-To render an entire page without the spree_application layout, specify a relative path to the layout file (eg. 
+**To render an entire page without the spree_application layout** :
+specify a relative path to the layout file (eg. 
 spree/layouts/layout_file_name). This file will not be prefixed with an underscore as it is a layout, not a partial.
 
-To render a partial, specify the path in the layout file name and check the 'Render layout as partial' option. The
-path specified in the layout area will not have an underscore, but it will be required in the filename.
+**To render a partial** :
+1. Specify the path in the layout file name (eg. *spree/shared/example*). 
+The path specified in the layout area will not have an underscore, but it will be required in the filename.
 
-**Options**
+2. Check the 'Render layout as partial' option.
+
+3. Add this method to render your page as a partial in a view :
+<pre>
+<%= render_layout_as_partial('your-page-slug') %>
+</pre>
+
+
+###Options###
 
 Use the 'Show in' checkboxes to specify whether to display the page links in the header, footer or sidebar. The 
 position setting alters the order in which they appear.

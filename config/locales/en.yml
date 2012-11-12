@@ -37,3 +37,4 @@ en:
     link: Link
     meta_title: Meta Title
     page_navigation_title: "Pages"
+    render_layout_as_partial: "Partial"
