@@ -8,4 +8,9 @@ class Spree::Admin::PagesController < Spree::Admin::ResourceController
     @page = @object
   end
 
+  private
+  	def find_resource
+      Spree::Page.by_param(params[:id]).first!
+    end
+
 end
