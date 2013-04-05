@@ -19,10 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 2.0.0.beta'
 
-  # test
-  # s.add_dependency 'i18n', '~> 0.6'
-  # s.add_dependency 'rails-i18n'
-
   s.add_development_dependency 'capybara',     '~> 1.0.1'
   s.add_development_dependency 'factory_girl', '~> 4.2'
   s.add_development_dependency 'ffaker'
@@ -31,6 +27,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov',    '~> 0.7.1'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'i18n-spec'
-  #s.add_development_dependency 'rspec-rails', '~> 2.12.0'
-  #s.add_development_dependency 'sqlite3', '~> 1.3.6'
 end
