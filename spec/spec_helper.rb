@@ -14,6 +14,7 @@ require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 require 'rspec/rails'
 require 'ffaker'
 require 'database_cleaner'
+require 'i18n-spec'
 
 # Run any available migration
 ActiveRecord::Migrator.migrate File.expand_path('../dummy/db/migrate/', __FILE__)
