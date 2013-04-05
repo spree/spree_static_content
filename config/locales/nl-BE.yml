@@ -3,13 +3,13 @@ nl-BE:
   page: Page
   pages: Statische pagina's
   static_content:
-    static_pages: Static pages
+    static_pages: Statische pagina's
     static_pages_desc: Beheer statische pagina's met een WYSIWYG editor.
     new_page: Nieuwe pagina
     editing_page: Pagina bewerken
     confirm_delete: Weet u zeker dat u deze pagina wilt verwijderen?
     link: Link
-    page_navigation_title: Statische pagina's
+    page_navigation_title: Pagina's
 
   activerecord:
     attributes:
