@@ -12,7 +12,7 @@ class Spree::Page < ActiveRecord::Base
 
   before_save :update_positions_and_slug
 
-  attr_accessible :title, :slug, :body, :meta_title, :meta_keywords, :meta_description, :layout, :foreign_link, :position, :show_in_sidebar, :show_in_header, :show_in_footer, :visible, :render_layout_as_partial
+  attr_accessible :title, :slug, :body, :meta_title, :meta_keywords, :meta_description, :layout, :foreign_link, :position, :show_in_sidebar, :show_in_header, :show_in_footer, :visible, :render_layout_as_partial, :render_title_automatically
 
   def self.by_slug(slug)
     slug = StaticPage::remove_spree_mount_point(slug)

@@ -19,7 +19,9 @@
     <% end %>
   <% end %>
 
-  <h1><%= @page.title %></h1>
+  <% if @page.render_title_automatically %>
+    <h1><%= @page.title %></h1>
+  <% end %>
   <div id="page_content">
     <%= raw @page.body %>
   </div>
