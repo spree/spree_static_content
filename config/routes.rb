@@ -20,17 +20,17 @@ class Spree::StaticRoot
   end
 end
 
-Spree::Core::Engine.routes.prepend do
+Spree::Core::Engine.routes.draw do
 
   namespace :admin do
     resources :pages
   end
 
   constraints(Spree::StaticRoot) do
-    match '/', :to => 'static_content#show', :via => :get, :as => 'static'
+    get '/', to: 'static_content#show', as: 'static_root'
   end
 
   constraints(Spree::StaticPage) do
-    match '/*path', :to => 'static_content#show', :via => :get, :as => 'static'
+    get '/*path', to: 'static_content#show', as: 'static_page'
   end
 end
