@@ -6,7 +6,7 @@ Bundler.setup
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
 
-require 'spree/testing_support/common_rake'
+require 'spree/testing_support/extension_rake'
 
 desc "Default Task"
 task :default => [ :spec ]
@@ -21,5 +21,5 @@ end
 desc "Generates a dummy app for testing"
 task :test_app do
   ENV['LIB_NAME'] = 'spree_static_content'
-  Rake::Task['common:test_app'].invoke
+  Rake::Task['extension:test_app'].invoke
 end
