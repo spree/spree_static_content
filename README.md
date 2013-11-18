@@ -50,7 +50,8 @@ gem 'spree_static_content', :github => 'spree/spree_static_content'
 ```
 
 2. Run `bundle install`
-3. To copy and apply migrations run: `rails g spree_static_content:install`
+3. To copy migrations run: `rails g spree_static_content:install:migrations`
+4. To run these migrations run: `rake db:migrate db:test:prepare`
 
 **For Spree 1.3.x**
 
