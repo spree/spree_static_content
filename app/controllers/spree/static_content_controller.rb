@@ -13,7 +13,7 @@ class Spree::StaticContentController < Spree::StoreController
       request.path
     end
 
-    unless @page = Spree::Page.visible.by_slug(path).first
+    unless @static_content = Spree::Page.visible.by_slug(path).first
       render_404
     end
   end
@@ -21,12 +21,12 @@ class Spree::StaticContentController < Spree::StoreController
   private
 
   def determine_layout
-    return @page.layout if @page and @page.layout.present? and not @page.render_layout_as_partial?
+    return @static_content.layout if @static_content and @static_content.layout.present? and not @static_content.render_layout_as_partial?
     Spree::Config.layout
   end
 
   def accurate_title
-    @page ? (@page.meta_title.present? ? @page.meta_title : @page.title) : nil
+    @static_content ? (@static_content.meta_title.present? ? @static_content.meta_title : @static_content.title) : nil
   end
 
 end

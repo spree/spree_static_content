@@ -1,16 +1,6 @@
-<% if @page.layout.present? and @page.render_layout_as_partial? %>
-  <%= render :partial => @page.layout %>
+<% if @static_content.layout.present? and @static_content.render_layout_as_partial? %>
+  <%= render :partial => @static_content.layout %>
 <% else %>
-  <% content_for :head do -%>
-    <%- if @page.meta_title.present? -%>
-      <meta name="title" content="<%=@page.meta_title%>">
-    <%- else -%>
-      <meta name="title" content="<%=@page.title%>">
-    <%- end -%>
-    <meta name="keywords" content="<%=@page.meta_keywords%>">
-    <meta name="description" content="<%=@page.meta_description%>">
-  <% end -%>
-
   <% content_for :sidebar do %>
     <% if "products" == @current_controller && @taxon %>
       <%= render :partial => "spree/shared/filters" %>
@@ -19,8 +9,8 @@
     <% end %>
   <% end %>
 
-  <h1><%= @page.title %></h1>
+  <h1><%= @static_content.title %></h1>
   <div id="page_content">
-    <%= raw @page.body %>
+    <%= raw @static_content.body %>
   </div>
 <% end %>
