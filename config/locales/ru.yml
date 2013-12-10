@@ -32,6 +32,7 @@ ru:
       confirm_delete: "Вы уверены, что хотите удалить страницу?"
       link: "Ссылка"
       meta_title: "Мета заголовок"
+      page_navigation_title: "Страницы"
     back_to_static_pages_list: "Назад к списку страниц"
     admin:
       tab:
