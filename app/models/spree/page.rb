@@ -1,4 +1,6 @@
 class Spree::Page < ActiveRecord::Base
+  acts_as_list
+
   default_scope -> { order('position ASC') }
 
   validates_presence_of :title
@@ -13,15 +15,7 @@ class Spree::Page < ActiveRecord::Base
   scope :footer_links, -> { where(show_in_footer: true).visible }
   scope :sidebar_links, -> { where(show_in_sidebar: true).visible }
 
-  before_save :update_positions, unless: :new_record?
   before_save :update_slug
-
-  def initialize(*args)
-    super(*args)
-
-    last_page = Spree::Page.last
-    self.position = last_page ? last_page.position + 1 : 0
-  end
 
   def link
     foreign_link.blank? ? slug : foreign_link
@@ -32,17 +26,6 @@ class Spree::Page < ActiveRecord::Base
   def update_slug
     # ensure that all slugs start with a slash
     slug.prepend('/') if not_using_foreign_link? && !slug.start_with?('/')
-  end
-
-  # TODO: This method is not tested!
-  def update_positions
-    # TODO: Should this = not be a == ?
-    return unless prev_position = Spree::Page.find(self.id).position
-    if prev_position > self.position
-      Spree::Page.update_all("position = position + 1", ["? <= position AND position < ?", self.position, prev_position])
-    elsif prev_position < self.position
-      Spree::Page.update_all("position = position - 1", ["? < position AND position <= ?", prev_position,  self.position])
-    end
   end
 
   def not_using_foreign_link?

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Page do
-  let!(:page) { create(:page) }
+  let(:page) { create(:page) }
 
   context 'factory' do
     it 'is valid' do
@@ -43,6 +43,21 @@ describe Spree::Page do
           expect(subject.slug).to eq('page_slug')
         end
       end
+    end
+  end
+
+  describe 'positions' do
+    let(:page_1) { create :page }
+    let(:page_2) { create :page }
+
+    before do
+      page_1.save!
+      page_2.save!
+   end
+
+   it 'should have positions' do
+      expect(page_1.position).to eq(1)
+      expect(page_2.position).to eq(2)
     end
   end
 end
