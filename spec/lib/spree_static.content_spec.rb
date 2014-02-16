@@ -13,19 +13,19 @@ describe Spree::StaticPage do
   subject { described_class }
 
   context '.matches?' do
-    it 'is true when valid page' do
+    it 'matches when valid page' do
       page = create(:page, slug: 'hello', visible: true)
       request = double('request', path: page.slug)
       expect(subject.matches?(request)).to be_true
     end
 
-    it 'is false when using reserved slug name' do
+    it 'does not match when using reserved slug name' do
       page = create(:page, slug: 'login', visible: true)
       request = double('request', path: page.slug)
       expect(subject.matches?(request)).to be_false
     end
 
-    it 'is false when page is not accessible' do
+    it 'does not match when page is not accessible' do
       page = create(:page, slug: 'hello', visible: false)
       request = double('request', path: page.slug)
       expect(subject.matches?(request)).to be_false
