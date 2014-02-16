@@ -33,6 +33,7 @@ class Spree::Page < ActiveRecord::Base
     slug.prepend('/') if not_using_foreign_link? && !slug.start_with? '/'
 
     unless new_record?
+      # TODO: Should this = not be a == ?
       return unless prev_position = Spree::Page.find(self.id).position
       if prev_position > self.position
         Spree::Page.update_all("position = position + 1", ["? <= position AND position < ?", self.position, prev_position])
