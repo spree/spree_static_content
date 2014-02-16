@@ -25,4 +25,24 @@ describe Spree::Page do
       expect(page.link).to eq page.foreign_link
     end
   end
+
+  describe 'after save' do
+    subject { create :page, slug: 'page_slug' }
+
+    describe 'update slug' do
+      context 'page is not a foreign link' do
+        it 'should always start with a /' do
+          expect(subject.slug).to eq("/page_slug")
+        end
+      end
+
+      context 'page is a foreign link' do
+        subject { create :page, slug: 'page_slug', foreign_link: 'http://example.com' }
+
+        it 'should leave slug alone' do
+          expect(subject.slug).to eq('page_slug')
+        end
+      end
+    end
+  end
 end

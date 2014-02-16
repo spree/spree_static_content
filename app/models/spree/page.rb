@@ -13,7 +13,8 @@ class Spree::Page < ActiveRecord::Base
   scope :footer_links, -> { where(show_in_footer: true).visible }
   scope :sidebar_links, -> { where(show_in_sidebar: true).visible }
 
-  before_save :update_positions_and_slug
+  before_save :update_positions, unless: :new_record?
+  before_save :update_slug
 
   def initialize(*args)
     super(*args)
@@ -28,21 +29,20 @@ class Spree::Page < ActiveRecord::Base
 
   private
 
-  def update_positions_and_slug
+  def update_slug
     # ensure that all slugs start with a slash
-    slug.prepend('/') if not_using_foreign_link? && !slug.start_with? '/'
+    slug.prepend('/') if not_using_foreign_link? && !slug.start_with?('/')
+  end
 
-    unless new_record?
-      # TODO: Should this = not be a == ?
-      return unless prev_position = Spree::Page.find(self.id).position
-      if prev_position > self.position
-        Spree::Page.update_all("position = position + 1", ["? <= position AND position < ?", self.position, prev_position])
-      elsif prev_position < self.position
-        Spree::Page.update_all("position = position - 1", ["? < position AND position <= ?", prev_position,  self.position])
-      end
+  # TODO: This method is not tested!
+  def update_positions
+    # TODO: Should this = not be a == ?
+    return unless prev_position = Spree::Page.find(self.id).position
+    if prev_position > self.position
+      Spree::Page.update_all("position = position + 1", ["? <= position AND position < ?", self.position, prev_position])
+    elsif prev_position < self.position
+      Spree::Page.update_all("position = position - 1", ["? < position AND position <= ?", prev_position,  self.position])
     end
-
-    true
   end
 
   def not_using_foreign_link?
