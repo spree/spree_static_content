@@ -3,7 +3,7 @@ class Spree::StaticContentController < Spree::StoreController
 
   helper 'spree/products'
   helper 'spree/pages'
-  
+
   layout :determine_layout
 
   def show
@@ -18,10 +18,5 @@ class Spree::StaticContentController < Spree::StoreController
     else
       Spree::Config.layout
     end
-  end
-
-  # TODO: Is this method used?
-  def accurate_title
-    @page && @page.meta_title.present? ? @page.meta_title : @page.title
   end
 end
