@@ -5,8 +5,8 @@ module Spree::PagesHelper
   end
 
   def page_uri page
-    named_routes_path = Rails.application.routes.named_routes[:spree].path.spec.to_s
-    page_uri = named_routes_path == '/' ? page.slug : named_routes_path + page.slug
+    path = Rails.application.routes.named_routes[:spree].path.spec.to_s
+    page_uri = path == '/' ? page.slug : path + page.slug
   end
 
   def page_li_class page
