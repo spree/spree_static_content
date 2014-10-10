@@ -43,6 +43,7 @@ Finally, toggle the visibility using the 'Visible' checkbox. If it is unchecked,
 ## Basic Installation
 
 Add to your `Gemfile`:
+
 If you're using Spree 2.3.X, you will need to add the gem to your Gemfile using this line placed underneath the line for the Spree gem':
 
 ```ruby
