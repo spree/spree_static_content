@@ -15,9 +15,10 @@
 
     <%= f.field_container :body do %>
       <%= f.label :body %> <span class="required">*</span><br />
-      <%= f.text_area :body, {rows: 12, :class => 'fullwidth'} %>
+      <%= f.text_area :body, {rows: 12, :class => 'tinymce-spree-static-content fullwidth'} %>
       <%= f.error_message_on :body %>
     <% end %>
+    <%= tinymce :spree_static_content %>
 
   </div>
   <div class="right four columns omega" data-hook="admin_page_form_right">
@@ -68,7 +69,7 @@
         <%= check_box_tag "page[store_ids][]", store.id, @page.stores.include?(store) %> <%= store.name %>
       <% end %>
     <% end %>
-    
+
   </div>
 
   <div data-hook="admin_page_form_meta" class="alpha omega twelve columns">

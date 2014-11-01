@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 2.4.0.beta'
+  s.add_dependency 'tinymce-rails'
 
   s.add_development_dependency 'capybara', '~> 2.2.1'
   s.add_development_dependency 'factory_girl', '~> 4.4'

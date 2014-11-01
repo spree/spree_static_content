@@ -1,0 +1,14 @@
+default:
+  plugins:
+    - link
+    - image
+spree_static_content:
+  selector: textarea.tinymce-spree-static-content
+  menubar: false
+  toolbar:
+    - styleselect | bold italic | undo redo | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image | link | table | code
+  plugins:
+    - table
+    - code
+    - image
+    - link

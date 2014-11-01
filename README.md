@@ -53,6 +53,10 @@ Run:
     bundle install
     rails g spree_static_content:install
 
+There is an example TinyMCE configuration in `config/tinymce.yml.spree_static_content`. If you are not using
+`tinymce` gem in your project, just rename it to `tinymce.yml`. Otherwise, copy configutation section to
+actual configuration file.
+
 That's all!
 
 **NOTE: Check [Versionfile][1] for corresponding gem `branch` for your Spree version.**

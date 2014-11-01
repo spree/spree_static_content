@@ -1,3 +1,5 @@
+require 'tinymce-rails'
+
 module SpreeStaticContent
   class Engine < Rails::Engine
     require 'spree/core'
