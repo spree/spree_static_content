@@ -2,28 +2,20 @@ module SpreeStaticContent
   module Generators
     class InstallGenerator < Rails::Generators::Base
       class_option :auto_run_migrations, type: :boolean, default: false
+      source_root File.expand_path("../templates", __FILE__)
 
       def add_stylesheets
         inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/spree_static_content\n", before: /\*\//, verbose: true
       end
 
       def add_backend_javascripts
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.js', "//= require spree/backend/spree_static_content"
+        inject_into_file 'vendor/assets/javascripts/spree/backend/all.js', after: "//= require spree/backend" do
+          "\n//= require spree/backend/spree_static_content"
+        end
       end
 
       def add_tinymce_configuration
-        inject_into_file 'config/tinymce.yml' do <<-YML
-spree_static_content:
-  selector: textarea.tinymce-spree-static-content
-  toolbar:
-    - styleselect | bold italic | undo redo
-    - image | link
-  plugins:
-    - table
-    - code
-    - image
-    - link
-YML
+        copy_file 'tinymce.yml', 'config/tinymce.yml.spree_static_content'
       end
 
       def add_migrations
