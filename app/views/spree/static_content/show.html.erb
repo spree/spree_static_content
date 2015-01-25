@@ -13,9 +13,9 @@
 
   <% content_for :sidebar do %>
     <% if defined? @products && defined? @taxon %>
-      <%= render partial: 'spree/shared/filters' %>
+      <%= render :partial => "spree/shared/filters" %>
     <% elsif defined? @taxonomies %>
-      <%= render partial: 'spree/shared/taxonomies' %>
+      <%= render :partial => "spree/shared/taxonomies" %>
     <% end %>
   <% end %>
 
