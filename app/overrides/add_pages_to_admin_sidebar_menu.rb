@@ -1,7 +1,7 @@
 Deface::Override.new(
-  virtual_path: 'spree/admin/shared/main_menu',
+  virtual_path: 'spree/layouts/admin',
   name: 'pages_admin_sidebar_menu',
-  insert_bottom: '.nav-sidebar',
+  insert_bottom: '#main-sidebar',
   partial: 'spree/admin/shared/pages_sidebar_menu',
   disabled: false
 )
