@@ -21,6 +21,9 @@ en:
       spree/page:
         one: Page
         other: Pages
+      spree/store:
+        one: Store
+        other: Stores
   spree:
     static_content:
       link: Link

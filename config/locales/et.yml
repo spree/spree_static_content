@@ -21,6 +21,9 @@ et:
       spree/page:
         one: Lehekülg
         other: Leheküljed
+      spree/store:
+        one: Kauplus
+        other: Kauplused
   spree:
     static_content:
       link: Link

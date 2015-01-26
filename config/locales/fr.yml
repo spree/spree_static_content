@@ -21,6 +21,9 @@ fr:
       spree/page:
         one: Page
         other: Pages
+      spree/store:
+        one: Boutique
+        other: Boutiques
   spree:
     static_content:
       link: Lien

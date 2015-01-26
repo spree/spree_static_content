@@ -23,6 +23,9 @@ ru:
         many: Страниц
         one: Страница
         other: Страницы
+      spree/store:
+        one: Store
+        other: Stores
   spree:
     static_content:
       link: Ссылка
