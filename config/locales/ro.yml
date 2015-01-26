@@ -21,6 +21,9 @@ ro:
       page:
         one: Pagină
         other: Pagini
+      spree/store:
+        one: Magazin
+        other: Magazine
   spree:
     static_content:
       link: Link

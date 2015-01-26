@@ -21,6 +21,9 @@ pl:
       spree/page:
         one: Strona
         other: "Strony statyczne"
+      spree/store:
+        one: Sklep
+        other: Sklepy
   spree:
     static_content:
       link: Odnośnik

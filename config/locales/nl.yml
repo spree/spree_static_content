@@ -21,6 +21,9 @@ nl:
       spree/page:
         one: Page
         other: "Statische pagina's"
+      spree/store:
+        one: Winkel
+        other: Winkel
   spree:
     static_content:
       link: Link

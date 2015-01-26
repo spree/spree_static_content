@@ -21,6 +21,9 @@ sv:
       spree/page:
         one: Sida
         other: Sidor
+      spree/store:
+        one: Store
+        other: Stores
   spree:
     static_content:
       link: Länk
