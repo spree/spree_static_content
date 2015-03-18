@@ -14,19 +14,6 @@ class Spree::Page < ActiveRecord::Base
   scope :header_links, -> { where(:show_in_header => true).visible }
   scope :footer_links, -> { where(:show_in_footer => true).visible }
   scope :sidebar_links, -> { where(:show_in_sidebar => true).visible }
-  scope :slug_relative_to_mount_point, lambda { |request_path|
-    # Remove Spree engine mount point from the path.
-    spree_path_regex_str = Rails.application.routes.named_routes[:spree].path.source
-    if spree_path_regex_str == "\\A/"
-      path = request_path
-    else
-      spree_path_regex = Regexp.new(spree_path_regex_str)
-      path = request_path.gsub(spree_path_regex, "")
-    end
-
-    # Match slug to path without Spree engine mount point.
-    where(:slug => path)
-  }
 
   scope :by_store, lambda { |store| joins(:stores).where("spree_pages_stores.store_id = ?", store) }
 
