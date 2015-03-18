@@ -5,7 +5,7 @@ class Spree::StaticContentController < Spree::StoreController
   layout :determine_layout
 
   def show
-    @page = Spree::Page.by_store(current_store).visible.slug_relative_to_mount_point(request.path).first
+    @page = Spree::Page.by_store(current_store).visible.slug_relative_to_mount_point(request.path).first!
   end
 
   private

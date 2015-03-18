@@ -17,8 +17,12 @@ class Spree::Page < ActiveRecord::Base
   scope :slug_relative_to_mount_point, lambda { |request_path|
     # Remove Spree engine mount point from the path.
     spree_path_regex_str = Rails.application.routes.named_routes[:spree].path.source
-    spree_path_regex = Regexp.new(spree_path_regex_str)
-    path = request_path.gsub(spree_path_regex, "")
+    if spree_path_regex_str == "\\A/"
+      path = request_path
+    else
+      spree_path_regex = Regexp.new(spree_path_regex_str)
+      path = request_path.gsub(spree_path_regex, "")
+    end
 
     # Match slug to path without Spree engine mount point.
     where(:slug => path)
