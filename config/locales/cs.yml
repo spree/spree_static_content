@@ -20,8 +20,7 @@ cs:
     models:
       spree/page:
         one: Stránka
-        few: Stránky
-        other: Stránek
+        other: Stránky
   spree:
     static_content:
       link: Odkaz
