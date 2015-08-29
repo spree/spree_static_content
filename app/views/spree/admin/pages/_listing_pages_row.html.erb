@@ -2,6 +2,7 @@
   <td><%=='&nbsp;'*level*5%><%= page.title %></td>
   <td><%= link_to page.link, page.link, target: '_blank' %></td>
   <td class="text-center"><%= content_tag(:i, '', class: 'icon icon-ok') if page.visible %></td>
+  <td class="text-center"><%= page.position %></td>
   <td class="actions text-right" data-hook="admin_pages_index_row_actions">
     <%= link_to_edit page, no_text: true %>
     <%= link_to_delete page, no_text: true %>
