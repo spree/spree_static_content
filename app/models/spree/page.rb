@@ -3,6 +3,9 @@ class Spree::Page < ActiveRecord::Base
 
   has_and_belongs_to_many :stores, join_table: 'spree_pages_stores'
 
+  belongs_to :parent, class_name: 'Spree::Page'
+  has_many :children, class_name: 'Spree::Page', foreign_key: 'parent_id', :dependent => :destroy
+
   validates :title, presence: true
   validates :slug, :body, presence: true, if: :not_using_foreign_link?
   validates :layout, presence: true, if: :render_layout_as_partial?
@@ -13,6 +16,10 @@ class Spree::Page < ActiveRecord::Base
   scope :header_links, -> { where(show_in_header: true).visible }
   scope :footer_links, -> { where(show_in_footer: true).visible }
   scope :sidebar_links, -> { where(show_in_sidebar: true).visible }
+  scope :root, -> { where(parent: nil).visible }
+  scope :current_locale, -> { where(locale: I18n.locale).visible }
+  scope :with_locale, ->(locale) { where(locale: locale).visible }
+  scope :except_id, ->(id) { where.not(id: id) }
 
   scope :by_store, ->(store) { joins(:stores).where('spree_pages_stores.store_id = ?', store) }
 
@@ -25,7 +32,7 @@ class Spree::Page < ActiveRecord::Base
   end
 
   def link
-    foreign_link.blank? ? slug : foreign_link
+    foreign_link.blank? ? "/#{locale}#{slug}" : foreign_link
   end
 
   private

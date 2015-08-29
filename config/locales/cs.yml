@@ -17,6 +17,8 @@ cs:
         slug: Slug
         title: Nadpis
         visible: Viditelná
+        parent: Rodičovská stránka
+        locale: Jazyk
     models:
       spree/page:
         one: Stránka
