@@ -12,6 +12,7 @@ et:
         position: Positsioon
         render_layout_as_partial: "Render paigutus osaliseks"
         show_in_header: "Kuva lehekülj päises"
+        show_in_footer: "Kuva lehekülg jaluses"
         show_in_sidebar: "Kuva lehekülg küljeribal"
         slug: Püsiviide
         title: Pealkiri

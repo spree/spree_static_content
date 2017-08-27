@@ -12,6 +12,7 @@ ro:
         position: Poziția în meniu
         render_layout_as_partial: "Utilizează șablonul ca un machet"
         show_in_header: "Arată în header"
+        show_in_footer: "Arată în footer"
         show_in_sidebar: "Arată în bara laterală"
         slug: Permalink
         title: Titlu

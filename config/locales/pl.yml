@@ -12,6 +12,7 @@ pl:
         position: Pozycja
         render_layout_as_partial: "Render układ jako częściowe"
         show_in_header: "Pokaż w nagłówku"
+        show_in_footer: "Pokaż w stopce"
         show_in_sidebar: "Pokaż w pasku bocznym"
         slug: Skrót
         title: Tytuł

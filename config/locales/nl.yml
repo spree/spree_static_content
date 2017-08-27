@@ -12,6 +12,7 @@ nl:
         position: Positie
         render_layout_as_partial: "Render layout als gedeeltelijke"
         show_in_header: "Toon in header?"
+        show_in_footer: "Toon in footer?"
         show_in_sidebar: "Toon in zijbalk?"
         slug: Slug
         title: Titel

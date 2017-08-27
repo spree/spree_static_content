@@ -12,6 +12,7 @@ en:
         position: Position
         render_layout_as_partial: "Render layout as partial"
         show_in_header: "Show in header"
+        show_in_footer: "Show in footer"
         show_in_sidebar: "Show in sidebar"
         slug: Slug
         title: Title

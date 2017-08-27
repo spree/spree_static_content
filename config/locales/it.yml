@@ -12,6 +12,7 @@ it:
         position: Posizione
         render_layout_as_partial: Usa layout come partial
         show_in_header: Mostra nell'header
+        show_in_footer: Mostra nel footer
         show_in_sidebar: Mostra nella sidebar
         slug: Slug
         title: Titolo

@@ -55,6 +55,13 @@
       </div>
 
       <div class="checkbox">
+        <%= f.label :show_in_footer do %>
+          <%= f.check_box :show_in_footer %>
+          <%= Spree::Page.human_attribute_name(:show_in_footer) %>
+        <% end %>
+      </div>
+
+      <div class="checkbox">
         <%= f.label :visible do %>
           <%= f.check_box :visible %>
           <%= Spree::Page.human_attribute_name(:visible) %>

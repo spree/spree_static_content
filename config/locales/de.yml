@@ -12,6 +12,7 @@ de:
         position: Position
         render_layout_as_partial: "Rendern Layout als partielle"
         show_in_header: "Im Kopfzeile anzeigen"
+        show_in_footer: "In der Fußzeile anzeigen"
         show_in_sidebar: "In der Seitenleiste anzeigen"
         slug: Pfad
         title: Titel

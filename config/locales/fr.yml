@@ -12,6 +12,7 @@ fr:
         position: Position
         render_layout_as_partial: "Rendu disposition partielle"
         show_in_header: "Visible en entête"
+        show_in_footer: "Visible en pied de page"
         show_in_sidebar: "Visible dans la sidebar"
         slug: Slug
         title: Titre

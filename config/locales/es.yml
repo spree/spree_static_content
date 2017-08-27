@@ -12,6 +12,7 @@ es:
         position: Posición
         render_layout_as_partial: "Renderizar disposición como parciales"
         show_in_header: "Mostrar en la cabecera"
+        show_in_footer: "Mostrar en el pie de página"
         show_in_sidebar: "Mostrar en el barra lateral"
         slug: Slug
         title: Título
