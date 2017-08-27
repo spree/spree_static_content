@@ -1,0 +1,31 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:editing_page) %> <span class="green">"<%= @page.title %>"</span>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:back_to_page_list), spree.admin_pages_path, :icon => 'icon-arrow-left' %>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @page } %>
+
+<div class="row">
+  <fieldset class="no-border-top translations">
+
+    <%= render 'settings' %>
+    <%= form_for [:admin, @resource] do |f| %>
+
+      <div class="row translations">
+        <div class="col-md-8">
+          <%= form_for [:admin, @resource] do |f| %>
+            <%= render 'form_fields', f: f %>
+            <%= render 'spree/admin/shared/edit_resource_links' %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= render 'fields' %>
+        </div>
+      </div>
+
+    <% end %>
+  </fieldset>
+</div>
