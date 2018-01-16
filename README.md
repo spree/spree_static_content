@@ -56,12 +56,16 @@ Finally, toggle the visibility using the 'Visible' checkbox. If it is unchecked,
   gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
   gem 'spree_globalize', github: 'spree-contrib/spree_globalize', branch: 'master'
   gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+  gem 'spree_i18n', github: 'spree-contrib/spree_i18n', branch: 'master'
+  gem 'spree_globalize', github: 'spree-contrib/spree_globalize', branch: 'master'
   ```
 
   #### Spree 3.0 and Spree 2.x
 
   ```ruby
   gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: 'X-X-stable'
+  gem "spree_i18n", github: "spree-contrib/spree_i18n", branch: "3-1-stable"
+  gem "spree_globalize", github: "spree-contrib/spree_globalize", ref: "master"
   ```
 
   The `branch` option is important: it must match the version of Spree you're using.
