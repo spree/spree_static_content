@@ -4,7 +4,7 @@ module Spree
     layout :determine_layout
 
     def show
-      @page = Spree::StaticPage.finder_scope.by_store(current_store).find_by!(slug: request.path)
+      @page = Spree::StaticPage.finder_scope.by_store(current_store).find_by!(slug: [params[:path], "/#{params[:path]}"])
     end
 
     private

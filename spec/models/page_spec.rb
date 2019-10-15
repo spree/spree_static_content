@@ -7,11 +7,6 @@ RSpec.describe Spree::Page, type: :model do
     end
   end
 
-  it 'always add / prefix to slug' do
-    page = create(:page, slug: 'hello')
-    expect(page.slug).to eq '/hello'
-  end
-
   context '.link' do
     it 'returns slug if foreign_link blank' do
       page = create(:page, slug: 'hello')
