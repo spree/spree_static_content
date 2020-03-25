@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'pg', '~> 0.18'
-  s.add_development_dependency 'mysql2'
+  s.add_development_dependency 'mysql2', '~> 0.3.18'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'puma'
