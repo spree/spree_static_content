@@ -5,6 +5,7 @@ module Spree
 
     def show
       @page = Spree::StaticPage.finder_scope.by_store(current_store).find_by!(slug: request.path)
+      @static_content = @page # needed to use meta tags
     end
 
     private
