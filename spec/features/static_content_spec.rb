@@ -47,5 +47,12 @@ RSpec.feature 'Static Content Page', :js do
       visit spree.product_path(product)
       expect(page).to have_text product.name
     end
+
+    scenario 'can visit paths to change the language' do
+      locale = I18n.available_locales.sample
+      visit "/#{locale}"
+
+      expect(page).to have_text 'WOMEN'.upcase
+    end
   end
 end

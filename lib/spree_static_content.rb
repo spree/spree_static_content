@@ -15,7 +15,9 @@ end
 module Spree
   class StaticPage
     def self.matches?(request)
-      return false if request.path =~ %r{\A\/+(api/v|api_tokens|admin|account|cart|checkout|content|login|pg\/|orders|products|s\/|session|signup|shipments|states|t\/|tax_categories|user|rails\/active_storage)+}
+      locales = I18n.available_locales.join('|')
+      path_regex = %r{\A/+(api/v|api_tokens|admin|account|cart|checkout|content|login|pg/|orders|products|s/|session|signup|shipments|states|t/|tax_categories|user|rails/active_storage|#{locales})+}
+      return false if request.path =~ path_regex
 
       finder_scope.exists?(slug: request.path)
     end
