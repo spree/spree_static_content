@@ -17,6 +17,7 @@ class Spree::Page < ActiveRecord::Base
   scope :by_store, ->(store) { joins(:stores).where('spree_pages_stores.store_id = ?', store) }
 
   before_save :update_positions_and_slug
+  acts_as_list
 
   def initialize(*args)
     super(*args)

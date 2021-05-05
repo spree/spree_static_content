@@ -7,15 +7,18 @@
 <% end %>
 
 <% if @pages.any? %>
-  <table class="table" id="listing_pages" data-hook>
+  <table class="table sortable" id='listing_pages' data-sortable-link='<%= update_positions_admin_pages_url %>'>
     <colgroup>
+      <col style="width: 5%">
       <col style="width: 40%">
       <col style="width: 35%">
       <col style="width: 10%">
-      <col style="width: 15%">
+      <col style="width: 10%">
     </colgroup>
+
     <thead>
       <tr data-hook="admin_pages_index_headers">
+        <th class="no-border"></th>
         <th><%= Spree::Page.human_attribute_name(:title) %></th>
         <th><%= Spree.t(:link, scope: :static_content) %></th>
         <th class="text-center"><%= Spree::Page.human_attribute_name(:visible) %></th>
@@ -24,7 +27,10 @@
     </thead>
     <tbody>
       <% @pages.each do |page| %>
-        <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id page %>">
+        <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id page %>">
+          <td class="move-handle text-center">
+            <span class="icon icon-move handle"></span>
+          </td>
           <td><%= page.title %></td>
           <td><%= link_to page.link, page.link, target: '_blank' %></td>
           <td class="text-center"><%= content_tag(:i, '', class: 'icon icon-ok') if page.visible %></td>
