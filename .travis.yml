@@ -22,6 +22,10 @@ env:
   - DB=mysql
   - DB=postgres
 
+matrix:
+    allow_failures:
+          - gemfile: gemfiles/spree_master.gemfile
+
 gemfile:
   - gemfiles/spree_3_7.gemfile
   - gemfiles/spree_4_0.gemfile
