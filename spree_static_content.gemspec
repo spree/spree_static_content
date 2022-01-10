@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '>= 3.7.0', '< 5.0'
+  s.add_dependency 'spree_backend', '>= 3.7.0', '< 5.0'
   s.add_dependency 'spree_extension'
   s.add_dependency 'deface', '~> 1.5'
 

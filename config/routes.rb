@@ -1,6 +1,9 @@
 Spree::Core::Engine.add_routes do
   namespace :admin, path: Spree.admin_path do
     resources :pages do
+      collection do
+        post :update_positions
+      end
       patch :translate, on: :member
     end
   end
