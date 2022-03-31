@@ -2,5 +2,7 @@
   <li><%= link_to page.title, page.foreign_link, target: '_blank', rel: 'nofollow' %></li>
 <% else %>
   <% page_uri = Rails.application.routes.named_routes[:spree].path.spec.to_s == '/' ? page.slug : Rails.application.routes.named_routes[:spree].path.spec.to_s + page.slug %>
-  <li class="<%= 'current' if (request.fullpath.gsub('//','/') == page_uri) %>"><%= link_to page.title, page_uri %></li>
+  <% li_class ||= 'current' if (request.fullpath.gsub('//','/') == page_uri) %>
+  <% a_class ||= '' %>
+  <li class="<%= li_class if li_class.present? %>"><%= link_to page.title&.capitalize, page_uri, :class => a_class %></li>
 <% end %>
